@@ -1,0 +1,28 @@
+<div class="p-grid p-dir-rev">
+  <div class="p-col-3" style="background-color: rgb(192, 235, 236);height: 100vh">
+    <p-panelMenu [model]="items" [multiple]='false' [style]="{'width':'100%'}"></p-panelMenu>
+  </div>
+  <div class="p-col-9 p-grid p-dir-col" style="padding:1em;">
+    <!-- <app-personel-details *ngIf='toggleSwitch.TogglePolicyIssuance==="Personel"'></app-personel-details>
+    <app-income-details *ngIf='toggleSwitch.TogglePolicyIssuance=="Income"'></app-income-details>
+    <app-policy-nominee-details *ngIf='toggleSwitch.TogglePolicyIssuance=="Nominee"'></app-policy-nominee-details>
+    <app-policy-details *ngIf='toggleSwitch.TogglePolicyIssuance=="Policy"'></app-policy-details> -->
+    <div *ngIf='toggleState | async;let toggle'>
+        <app-personel-details *ngIf='toggle.TogglePolicyIssuance==="Personel"'></app-personel-details>
+        <app-income-details *ngIf='toggle.TogglePolicyIssuance=="Income"'></app-income-details>
+        <app-policy-nominee-details *ngIf='toggle.TogglePolicyIssuance=="Nominee"'></app-policy-nominee-details>
+        <app-policy-details *ngIf='toggle.TogglePolicyIssuance=="Policy"'></app-policy-details>
+    </div>
+    <div *ngIf='toggleState | async;let toggle'>
+        <button pButton type="button" style="float: left;" label="Previous" 
+        *ngIf='toggle.TogglePolicyIssuance!=="Personel"'
+        (click)="toggleNav(toggle.TogglePolicyIssuance,'prev')" icon="pi pi-arrow-left"></button>
+        <button pButton type="button" style="float: right;" label="Next" 
+        *ngIf='toggle.TogglePolicyIssuance!=="Policy"'
+        (click)="toggleNav(toggle.TogglePolicyIssuance,'next')" icon="pi pi-arrow-right" iconPos='right'></button>
+        <button pButton type="button" style="float: right;" label="Submit" 
+        *ngIf='toggle.TogglePolicyIssuance==="Policy"'
+        (click)="submit()" icon="pi pi-check" iconPos='right'></button>
+    </div>
+  </div>
+</div>

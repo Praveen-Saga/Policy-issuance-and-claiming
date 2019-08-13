@@ -1,0 +1,40 @@
+<div class="p-grid p-dir-col">
+  <div class="p-grid">
+    <h3 class="p-offset-5">Policy Details</h3>
+  </div>
+
+  <div class="p-grid padding" >
+      <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+        <span class="ui-inputgroup-addon">Policy Name:</span>
+        <input type="text" class="p-col" pInputText placeholder="Policy Name">         
+    </div>
+  </div>
+
+  <div class="p-grid padding" >
+    <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+      <span class="ui-inputgroup-addon">Plan Type:</span>
+      <input type="text" class="p-col" pInputText placeholder="Plan Type">         
+  </div>
+</div>
+
+<div class="p-grid padding" >
+  <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+    <span class="ui-inputgroup-addon">Premium Frequency:</span>
+    <p-dropdown   [options]="premiumFrequency"></p-dropdown>       
+</div>
+</div>
+
+<div class="p-grid padding" >
+  <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+    <span class="ui-inputgroup-addon">Insured Amount:</span>
+    <input type="number" class="p-col" pInputText placeholder="Insured Amount">         
+</div>
+</div>
+
+<div class="p-grid padding" >
+  <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+    <span class="ui-inputgroup-addon">Issuance Date:</span>
+    <p-calendar  dateFormat='dd/mm/yy' placeholder='Issuance Date'></p-calendar>          
+</div>
+</div>
+</div>

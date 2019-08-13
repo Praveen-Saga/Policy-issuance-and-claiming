@@ -1,0 +1,57 @@
+<div class="p-grid p-dir-col">
+  <div class="p-grid p-dir-row" >
+    <div class="p-col-10 p-grid" >
+        <h3 class="p-offset-5">Policy Nominee Details</h3>
+    </div>
+    <div class="p-col-2 p-grid">
+      <div class="p-col-align-center">
+          <button pButton type="button" icon="pi pi-plus" iconPos='left' label='Add' (click)='addForm()'></button>
+      </div>
+    </div>
+  </div>
+<form [formGroup]='nomineeForm' (ngSubmit)='submit(nomineeForm)'>
+  <div formArrayName='formArray'> 
+    <div *ngFor='let array of formArray.controls;let i = index' [formGroupName]='i'>
+      <h1>{{i+1}}.) </h1>
+  <div class="p-grid padding" >
+      <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+        <span class="ui-inputgroup-addon">Nominee Name:</span>
+        <input type="text" class="p-col" formControlName='name' pInputText placeholder="Nominee Name">         
+    </div>
+  </div>
+
+  <div class="p-grid padding" >
+    <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+      <span class="ui-inputgroup-addon">Date of Birth:</span>
+      <p-calendar  dateFormat='dd/mm/yy' formControlName='dob' placeholder='Date of Birth'></p-calendar>          
+  </div>
+  </div>
+
+  <div class="p-grid padding" >
+    <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+      <span class="ui-inputgroup-addon">Contact Number:</span>
+      <input type="tel" class="p-col" formControlName='contactNo' pInputText placeholder="Contact Number">         
+  </div>
+</div>
+
+<div class="p-grid padding" >
+  <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+    <span class="ui-inputgroup-addon">Relationship With Policy Holder:</span>
+    <p-dropdown formControlName='relation'  [options]="Relationship"></p-dropdown>       
+</div>
+</div>
+
+<div class="p-grid padding" >
+  <div class=" p-col p-grid ui-inputgroup" style="padding-inline-start: 1em;">
+    <span class="ui-inputgroup-addon">Percentage Stake:</span>
+    <input type="number" min='0' max="100" formControlName='stake'  class="p-col" pInputText placeholder="Percentage Stake">         
+    <!-- <p-spinner [min]='0' [max]='100' pInputText placeholder="Percentage Stake"></p-spinner>         -->
+</div>
+</div>
+
+<!-- <button pButton type="submit" icon="pi pi-plus" iconPos='left' label='submit'></button> -->
+</div>
+</div>
+</form>
+
+</div>
